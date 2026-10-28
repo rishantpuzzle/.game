@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+  <meta name="theme-color" content="#101a1c" />
+  <title>Vita Battle Royal India — Prototype 1.0</title>
+  <link rel="stylesheet" href="style.css" />
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://cdn.jsdelivr.net/npm/three@0.166.1/build/three.module.js"
+      }
+    }
+  </script>
+</head>
+<body>
+  <div id="game-root">
+    <div id="topbar">
+      <div class="brand"><span class="brand-mark">V</span><div><strong>VITA</strong><small>BATTLE ROYAL INDIA</small></div></div>
+      <div class="match-info"><span class="live-dot"></span> TRAINING GROUNDS <span id="fps-label">3D PROTOTYPE</span></div>
+      <button id="pause-btn" class="small-btn" aria-label="Pause game">Ⅱ</button>
+    </div>
+
+    <div id="hud" class="hidden">
+      <div class="hud-left">
+        <div class="stat-card"><span class="stat-label">HEALTH</span><div class="bar"><div id="health-fill" class="bar-fill health-fill"></div></div><strong id="health-text">100 / 100</strong></div>
+        <div class="stat-card compact"><span class="stat-label">BOTS LEFT</span><strong id="bots-left">6</strong></div>
+      </div>
+      <div class="crosshair"><span></span><i></i></div>
+      <div class="hud-right"><div class="weapon-card"><span class="stat-label">TRAINING RIFLE</span><strong>∞ <small>AMMO</small></strong><div class="weapon-line"></div></div></div>
+      <div id="toast" class="toast"></div>
+      <div class="controls-hint" id="desktop-hint">WASD move · Mouse aim · Click shoot · Shift sprint · Space jump · Esc pause</div>
+      <div id="mobile-controls">
+        <div id="joystick-zone"><div id="joystick-base"><div id="joystick-knob"></div></div><span>MOVE</span></div>
+        <div class="mobile-actions"><button id="jump-btn" class="action-btn">JUMP</button><button id="fire-btn" class="action-btn fire-btn">FIRE</button></div>
+        <div id="look-zone">DRAG TO LOOK</div>
+      </div>
+    </div>
+
+    <div id="menu" class="overlay">
+      <div class="menu-card">
+        <div class="eyebrow"><span class="live-dot"></span> EARLY PLAYABLE BUILD</div>
+        <div class="big-logo"><span>VITA</span><b>BATTLE ROYAL<br><em>INDIA</em></b></div>
+        <p class="tagline">DROP IN. STAY SHARP. SURVIVE.</p>
+        <p class="menu-description">Enter the training grounds, practise your aim and take on six AI training bots.</p>
+        <button id="play-btn" class="primary-btn">START TRAINING <span>➜</span></button>
+        <div class="feature-row"><span>◈ 3D WORLD</span><span>◈ THIRD PERSON</span><span>◈ OFFLINE BOTS</span></div>
+        <p class="tiny-note">Prototype 1.0 · Internet connection required to load the 3D library</p>
+      </div>
+    </div>
+
+    <div id="pause-menu" class="overlay hidden">
+      <div class="menu-card pause-card"><div class="eyebrow">TRAINING PAUSED</div><h2>Take a breath.</h2><p>Your training session is waiting.</p><button id="resume-btn" class="primary-btn">RESUME GAME <span>➜</span></button><button id="restart-btn" class="secondary-btn">RESTART TRAINING</button><button id="home-btn" class="secondary-btn">MAIN MENU</button></div>
+    </div>
+
+    <div id="result-menu" class="overlay hidden">
+      <div class="menu-card pause-card"><div class="eyebrow">MATCH RESULT</div><h2 id="result-title">TRAINING COMPLETE</h2><p id="result-copy">Great work, soldier.</p><button id="again-btn" class="primary-btn">PLAY AGAIN <span>➜</span></button><button id="result-home-btn" class="secondary-btn">MAIN MENU</button></div>
+    </div>
+    <div id="loading" class="loading"><span class="loader"></span><span>BUILDING TRAINING GROUNDS…</span></div>
+  </div>
+  <script type="module" src="game.js"></script>
+</body>
+</html>
